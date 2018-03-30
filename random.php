@@ -1,16 +1,17 @@
 <?php
-
+//Matthew Rossi, SE266 Assignment 1
 	$size = 10;
 	$table = "<table>\n";
-	function randColor(){
-	$random = "#";
-	for($colors = 1; $colors <= 6; $colors++){
+	$random = "";
+	$colorsArray = array();
 	
+	$loopCount = 0;
+	for($colors = 0; $colors < 100; $colors++){ //loop through 100 times, creating random colors and storing them in array
+	for($hex = 1; $hex <= 6; $hex++){
 	
+	$num = mt_rand(0, 15); // generate a random number from 0-15
 	
-	$num = mt_rand(0, 15);
-	
-	switch($num){
+	switch($num){ //since we are using hex, if the number is 10-15 change it to corresponding letter
 	
 	case 10:
 		$num = "A";
@@ -38,26 +39,28 @@
 	default:
 		$num = $num;
 	}
-	$random .= $num;
+	$random .= $num; // put them all into a string
 	}
 	
-	return $random;
+	$colorsArray[] = $random; // store string into array
+	$random = ""; // clear string
 	}
 	
 	
-	for ($rows = 1; $rows <= $size; $rows ++){
+	
+	for ($rows = 1; $rows <= $size; $rows ++){ // use nested for loops and a counter to populate table
 	
 	$table .= "\t<tr>\n";
 	for($columns = 1; $columns <= $size; $columns++){
-	$rand = randColor();
 	
-	 $table .= "<th style='background-color:" . $rand . "; width:50px; height:50px'>" . $rand . "<p style='color:white'>" .$rand . "<p>" . "</th>";
+	 $table .= "<th style='background-color:#" . $colorsArray[$loopCount] . "; width:50px; height:50px'>" . $colorsArray[$loopCount] . "<br /> <span style='color:white'>" . $colorsArray[$loopCount] . "</span>" . "</th>";
+	 $loopCount++; 
 	}
 	
-	$table .="\t</tr>\n";
+	$table .="\t</tr>\n"; //close row
 	
 	}
-	$table .= "</table>\n";
+	$table .= "</table>\n"; //close table
 ?>
 
 <!DOCTYPE html>
