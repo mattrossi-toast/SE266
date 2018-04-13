@@ -1,17 +1,18 @@
 <?php 
-//Matthew Rossi, Lab 2, SE266
+//Matthew Rossi, Lab 3, SE266
 error_reporting(0);
 require_once("db.php");
 require_once("corps.php");
 $action = '';
 $action = $_REQUEST['action'];
-$corp = $_POST['corp'];
-$incorp_dt = $_POST['incorp_dt'];
-$email = $_POST['email'];
-$zipcode = $_POST['zipcode'];
-$owner = $_POST['owner'];
-$phone = $_POST['phone'];
-$id = $_POST['id'];
+$corp = $_GET['corp'];
+$incorp_dt = $_GET['incorp_dt'];
+$email = $_GET['email'];
+$zipcode = $_GET['zipcode'];
+$owner = $_GET['owner'];
+$phone = $_GET['phone'];
+$id = $_GET['id'];
+$test = false;
 switch($action){
 	
 	case "Add":
@@ -20,16 +21,41 @@ switch($action){
 		break;
 	
 	case "Save":
-		saveCorp($corp, $incorp_dt, $email, $zipcode, $owner, $phone);
-		//get all rows		
-		$corps = getRows();
+		saveCorp($corp, $email, $zipcode, $owner, $phone);
+		
+		//get all rows
+		$test = false;	
+		$corps = getNames();		
 		//display rows	by calling in CorpTable
 		include_once("corpTable.php");
 		break;
 	case "Read":
+		$test = true;
 		$corps = getRowById($db, $id);
 		include_once("corpTable.php");
 		break;
+
+	case "Edit":
+		$corps = getRowById($db, $id);
+		include_once("corpFormEdit.php");
+		break;
+		
+	case "Update":
+		updateCorp($id, $corp, $incorp_dt, $email, $zipcode, $owner, $phone);
+		include_once("corps.php");
+		//get all rows		
+		$corps = getNames();
+		//display rows	by calling in CorpTable
+		include_once("corpTable.php");
+	break;
+		
+	
+	case "Delete":
+		include_once("corps.php");
+		deleteRows($id);
+		
+		
+	
 	default:
 		//get all rows		
 		$corps = getNames();
@@ -37,7 +63,6 @@ switch($action){
 		include_once("corpTable.php");
 		
 }
-
 
 
 ?>
