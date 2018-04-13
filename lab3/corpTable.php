@@ -28,7 +28,9 @@ $str = "<table class='table' style='position:absolute; top:100px; right:150px; h
 	$str .= "<td>" . $corps['zipcode']. '</td> ';
 	$str .= "<td>" . $corps['owner']. ' </td>';
 	$str .= "<td>" . $corps['phone'];
-	$str .= "<br />";
+	$str .= "<form action='index.php' method='get'> 
+	<input type='submit' name='action' value='Edit' class='btn btn-warning'></input> <input type='submit' name='action' value='Delete' class='btn btn-danger'></input>	
+<input type ='hidden' name='id' value='" . $corps['id'] ."' ></input></form><br />";
 
 
 $str .= "</table>";
