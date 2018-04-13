@@ -44,7 +44,14 @@ function saveCorp($corp, $email, $zipcode, $owner, $phone){
 	$stmt->bindParam(':owner', $owner);
 	$stmt->bindParam(':phone', $phone);
 	$stmt->execute();
+	if($sql){
+		
+		echo("New Corporation Successfully Added");
+	}
 	
+	else{
+		echo("Sorry, we had a problem connecting to the database");
+	}
 }
 
 function updateCorp($id, $corp, $incorp_dt, $email, $zipcode, $owner, $phone){

@@ -42,6 +42,7 @@ switch($action){
 		
 	case "Update":
 		updateCorp($id, $corp, $incorp_dt, $email, $zipcode, $owner, $phone);
+		//var_dump($result);
 		include_once("corps.php");
 		//get all rows		
 		$corps = getNames();
@@ -51,8 +52,10 @@ switch($action){
 		
 	
 	case "Delete":
+		include_once("delete.php");
 		include_once("corps.php");
 		deleteRows($id);
+		break;
 		
 		
 	
