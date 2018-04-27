@@ -1,5 +1,5 @@
 <?php 
-//Matthew Rossi, Lab 3, SE266
+//Matthew Rossi, Lab 4, SE266
 error_reporting(0);
 require_once("db.php");
 require_once("corps.php");
@@ -64,7 +64,9 @@ switch($action){
 
 	$test = false;
 		include_once("corps.php");
-		$corps = sortRows($sortBy, $ascDesc);
+		$corps = sortRows($sortBy, $ascDesc); // call sort function, send column to sort by and ascending/descending opt
+		echo("<form action='index.php' method='get'><input type='submit' name='action' value='Reset' style='color:black'></input></form>");//create reset button
+		echo("Sorting by " . $sortBy . ", " . $ascDesc ."ENDING"); // show what you are sorting
 		include_once("corpTable.php");
 		break;
 		
@@ -73,7 +75,14 @@ switch($action){
 		include_once("corps.php");
 		
 		$corps = searchRows($searchBy);
-		var_dump($corps);
+		if(empty($corps)){
+			echo("Sorry, no Results found for that search, please try a different criteria"); //if no rows, show error
+		}
+		
+		else{
+			echo(count($corps) . " Row(s) Returned.");//row count
+		}
+		echo("<form action='index.php' method='get'><input type='submit' name='action' value='Reset' style='color:black'></input></form>"); //reset button
 		include_once("corpTable.php");
 		break;
 		

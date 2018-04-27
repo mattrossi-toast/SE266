@@ -72,7 +72,7 @@ function updateCorp($id, $corp, $incorp_dt, $email, $zipcode, $owner, $phone){
 function sortRows($sortBy, $ascDesc){
 	global $db;
 
-	//Insert data given by user into database
+	//Grab data from database sorted
 	$sql = "SELECT id, corp FROM corps ORDER BY $sortBy $ascDesc;";
 
 	$stmt = $db->prepare($sql);
@@ -85,6 +85,7 @@ function sortRows($sortBy, $ascDesc){
 
 function searchRows($searchBy){
 	global $db;
+	//Grab data that contains search criteria
 	$sql = "SELECT id, corp FROM corps WHERE corp LIKE '%$searchBy%'";
 	$stmt = $db->prepare($sql);
 	$stmt->execute();	
