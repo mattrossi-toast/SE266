@@ -1,7 +1,7 @@
 <?php
 //View
 if($test == true){ // does foreach if printing all data
-$str =  "<table>";	
+$str =  "<table class='table'>";	
 	foreach($sites as $site){
 	foreach($site as $link){
 
@@ -24,16 +24,20 @@ $str .= "</table>";
 
 </head>
 <body style='background-color:#283593; color:white; font-family: Lora;' >
+<div style="width:100%; background-color:green;">
 <form action="index.php" method="get">
-<input type="submit" name = "action" value="Back"></input>
+<input class="btn btn-success" type="submit" name = "action" value="Back"></input>
 </form>
+</div>
+
+<h1 style="width:25%; margin:auto;"> Site Lookup </h1>
 <form action="index.php" method = "Get">
 <select style="color:black;" name="Site">
   <?php foreach($sitesDropDown as $site):?>
        <option value="<?php echo($site['site_id']); ?>" <?php  echo $site_id == $site['site_id'] ? 'selected = "selected "' : ''?>><?= $site['site']; ?></option>
     <?php endforeach; ?> 
 </select>
-<input type="Submit" name="action" value = "Search"> </input>
+<input class="btn btn-success" type="Submit" name="action" value = "Search"> </input>
 
 </form>
 <div>
