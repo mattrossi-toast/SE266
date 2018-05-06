@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2018 at 10:50 PM
+-- Generation Time: May 06, 2018 at 11:04 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -813,7 +813,6 @@ INSERT INTO `sites` (`site_id`, `site`, `date`) VALUES
 (100, 'https://www.facebook.com', '2018-05-06 16:40:06'),
 (101, 'https://uri.edu', '2018-05-06 16:40:53'),
 (102, 'https://neit.edu', '2018-05-06 16:41:02'),
-(103, 'https://www.autotrader.com', '2018-05-06 16:41:34'),
 (104, 'https://www.youtube.com', '2018-05-06 16:41:51'),
 (105, 'https://www.google.com', '2018-05-06 16:42:15'),
 (106, 'https://cnn.com', '2018-05-06 16:42:50'),
