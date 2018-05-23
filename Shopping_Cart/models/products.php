@@ -1,5 +1,5 @@
 <?php 
-
+// Model file for Products table
 function AddAProduct($name, $price, $category_id, $file_name){
 	global $db;	
 	var_dump($name, $price, $category_id, $file_name);
@@ -14,7 +14,7 @@ function AddAProduct($name, $price, $category_id, $file_name){
 	
 	$stmt->execute();
 	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	var_dump($result);
+	
 	}
 	catch(PDOException $e){
 		echo('Error: ' . $e->getMessage());
@@ -56,7 +56,7 @@ function GetOneProduct($product_id){
 	$stmt->bindParam(':product_id', $product_id);
 	$stmt->execute();
 	$results = $stmt->fetchAll();
-	return $results;
+	return $results[0];
 }
 
 function UpdateProduct($product_id, $category_id, $product, $price, $file_name){
@@ -97,4 +97,9 @@ function DeleteProduct($product_id){
 		echo('Error: ' . $e->getMessage());
 	}
 }
+
+
+	
+	
+
 ?>

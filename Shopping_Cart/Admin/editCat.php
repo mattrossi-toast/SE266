@@ -1,4 +1,6 @@
-<?php include_once("adminHeader.php"); ?>
+<?php include_once("adminHeader.php"); 
+//Section for editing categories
+?>
  <div  style ='position:relative; top:450px; background-color:#EDEDED; text-align:center; line-height:auto; box-shadow: 5px 10px 10px #888888;
 ' class="border border-dark rounded col-md-4 col-md-offset-4" > 
 <h1> Edit Category </h1>

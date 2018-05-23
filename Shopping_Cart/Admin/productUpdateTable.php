@@ -1,14 +1,14 @@
 <?php
 include_once("adminHeader.php");
-include_once("categories.php");
+include_once("../models/categories.php");
 
-if($action == 'delete')
+if($action == 'Delete')
 {
 $option = "Delete Product";
 	
 }
 
-if($action == 'update')
+if($action == 'Update')
 {
 	$option = 'Update Product';
 }
@@ -19,7 +19,7 @@ $str .= "<th>Product Name </th>";
 $str .= "<th> Price </th>";
 $str .= "<th> Category </th>";
 $str .= " <th> Image </th>";
-foreach($products as $product){// read in data to a string to format as table using bootstrap
+foreach($products as $product){// get all data from product
 	$str .= "<tr class='table'>";
 	$str .= "<td>" . $product['product']. "</td>";
 	$str .= "<td>" . "$" . $product['price']. "</td>";
@@ -37,4 +37,4 @@ $str .= "</table>";
 <?php echo $str ?> <!--Echo Table below button -->
 
 </div>
-</body>
+<?php include_once("../footer.php"); ?>

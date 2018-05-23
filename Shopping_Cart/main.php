@@ -1,11 +1,20 @@
 
-<?php include_once("header.php"); ?>
-<h2> Select A Category </h2>
+<?php
+//expanded version of the header for the main section of the site 
+include_once("header.php"); 
+?>
+<h2 style="text-align:center"> Select A Category </h2>
+
+<br />
+<br />
 <form action="index.php" method="get">
+<select style="color:black;" name="category_id">
+<option value='All' <?php  echo $category_id == $category['category_id'] ? 'selected = "selected "' : ''?>> All </option>
 <?php foreach($categoryDropDown as $category):?>
-       <button name='category_id' value='<?php echo($category['category_id']); ?>'> <?php echo($category['category']); ?></button>
+       <option value='<?php echo($category['category_id']); ?>'<?php  echo $category_id == $category['category_id'] ? 'selected = "selected "' : ''?>> <?php echo($category['category']); ?> </option>
     <?php endforeach; ?> 
-	<input type="hidden" name="action" value="view"> </input>
+	</select>
+	<input type="submit" name="action" value="View"> </input>
 </form>
 </body>
 </html>

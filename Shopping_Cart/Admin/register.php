@@ -1,12 +1,5 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet"> 
-<link rel='stylesheet' type='text/css' href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-
-</head>
-<body style='background-color:#FFFFFF; font-family: Lora;' >
-<h1> Admin Registration </h1>
+<?php include_once("adminHeader.php") ?>
+<h1 style="text-align:center"> Admin Registration </h1>
 <form action="index.php" method="Post">
 <label> Email </label>
 <input type="text" name="emailReg" value="" > </input>
@@ -20,6 +13,4 @@
 
 </form>
 
-
-</body>
-</html>
+<?php include_once("footer.php") ?>

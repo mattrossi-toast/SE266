@@ -1,4 +1,5 @@
 <?php
+//Section for deleting categories
 include_once("adminHeader.php");
 ?>
 

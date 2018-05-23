@@ -1,4 +1,5 @@
 <?php
+//Section for creating new categories
 include_once("adminHeader.php");
 ?>
 

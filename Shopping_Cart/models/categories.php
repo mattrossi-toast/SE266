@@ -1,4 +1,5 @@
 <?php
+//model file for category table
 function IsCategoryUnique($category){
 	global $db;	
 	//Insert data given by user into database
